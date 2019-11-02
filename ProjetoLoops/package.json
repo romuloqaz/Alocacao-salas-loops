@@ -1,0 +1,22 @@
+{
+  "name": "ProjetoLoops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/Servidor/server.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
