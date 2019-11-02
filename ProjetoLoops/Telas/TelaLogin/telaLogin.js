@@ -1,1 +1,3 @@
-const boostrap = require('bootstrap')
+let corpo = document.getElementsByTagName('body')
+
+console.log(corpo.width)
