@@ -7,32 +7,36 @@ html, body{
     padding-left: 0px;
 }
 
-img{
-    width: 100%;
-    height: 100%;
+#ifpb{
+    width: 70%;
+    height: 70%;
+    padding: 5px;
+    margin-left: 50px;
+    margin-top: 50px;
 }
+
 
 #telaTitulo{
       width: 500px;
-      height: 669px;
+      height: 100%;
       background-color: #0A5517;
       float: left;
 }
 
 #telaInfo{
     display: block;
-    width: 796px;
-    height: 669px;
+    width: 865px;
+    height: 100%;
     margin-right:0;
     margin-top: 0;
-    background-image: url("https://cdn.pixabay.com/photo/2017/03/28/12/07/bricks-2181920_960_720.jpg");
+    background-image: url("https://cdn.pixabay.com/photo/2017/03/28/12/07/bricks-2181920_960_720.jpg") ;
 }
 
 #matricula{
     box-sizing: border-box;
     border: none;
-    background-color: #3CBC8D;
-    color: white;
+    background-color: rgba(60, 188, 141, 0.795);
+    color: rgb(0, 0, 0);
     position: absolute;
     z-index: 1000%;
     width: 300px;
@@ -44,8 +48,8 @@ img{
 #senha{
     box-sizing: border-box;
     border: none;
-    background-color: #3CBC8D;
-    color: white;
+    background-color: rgba(60, 188, 141, 0.795);
+    color: rgb(0, 0, 0);
     position: absolute;
     z-index: 1000%;
     width: 300px;
@@ -68,6 +72,7 @@ img{
     cursor: pointer;
     margin-left: 250px;
     margin-top: 350px;
+    border-radius: 10px;
   }
 
 #text1{
@@ -76,4 +81,9 @@ img{
     background-color: red;
     margin-left: 50px;
     margin-top: 160px;
+}
+p{
+    text-align: center;
+    color:rgba(31, 30, 30, 0.938);
+    margin-top: 61px;
 }
