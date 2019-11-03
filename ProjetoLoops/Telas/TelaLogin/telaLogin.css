@@ -19,27 +19,61 @@ img{
       float: left;
 }
 
-#info{
-    position:absolute;
-    z-index: 10000%;
-    width: 300px;
-    height: 400px;
-    background-color: black;
-    float: right;
-    margin-left: 250px;
-    margin-top: 5%;
-    filter:alpha(opacity=50); 
-    opacity: 0.5;     
-    -moz-opacity:0.5;     
-    -webkit-opacity:0.5;
-}
-
 #telaInfo{
-    display: flex;
-   align-items: center;
+    display: block;
     width: 796px;
     height: 669px;
     margin-right:0;
     margin-top: 0;
     background-image: url("https://cdn.pixabay.com/photo/2017/03/28/12/07/bricks-2181920_960_720.jpg");
+}
+
+#matricula{
+    box-sizing: border-box;
+    border: none;
+    background-color: #3CBC8D;
+    color: white;
+    position: absolute;
+    z-index: 1000%;
+    width: 300px;
+    height: 30px;
+    margin-left:250px;
+    margin-top: 250px;
+}
+
+#senha{
+    box-sizing: border-box;
+    border: none;
+    background-color: #3CBC8D;
+    color: white;
+    position: absolute;
+    z-index: 1000%;
+    width: 300px;
+    height: 30px;
+    margin-left:250px;
+    margin-top: 300px;
+}
+
+#botao{
+    background-color:#e7e7e7;
+    width: 300px;
+    height: 30px;
+    color: black;
+    padding-bottom: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 250px;
+    margin-top: 350px;
+  }
+
+#text1{
+    width: 300px;
+    height: 50px;
+    background-color: red;
+    margin-left: 50px;
+    margin-top: 160px;
 }
