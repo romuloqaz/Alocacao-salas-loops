@@ -1,3 +1,5 @@
-let corpo = document.getElementsByTagName('body')
+let butt = document.getElementById('cadastro');
 
-console.log(corpo.width)
+butt.addEventListener('click', ()=>{
+    window.location.href = "localhost:3003/cadastro"
+})
