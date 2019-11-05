@@ -1,15 +1,24 @@
 let butt = document.getElementById('cadastro');
 let buttLog = document.getElementById('botao')
-const banco = require('../../Servidor/index')
-banco.cliente.connect();
-
-
-
+let mat = document.getElementById('matricula');
+let sen = document.getElementById('senha')
 
 butt.addEventListener('click', ()=>{
     window.location.href="http://localhost:3003/cadastro"
 })
 
 buttLog.addEventListener('click', ()=>{
-    banco.cliente.query("")
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:3003/autenticar",
+        "method": "POST",
+        "headers": {}
+      }
+      
+      $.ajax(settings).done(function (response) {
+            if(response.id == mat.value && response.nome == sen.value){
+             alert('foi')
+            }
+      });
 })
