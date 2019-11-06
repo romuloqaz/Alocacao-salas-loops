@@ -15,10 +15,14 @@ client.connect();
 app.use(body.json())
 app.use(body.urlencoded({extended:false}))
 app.use(cors())
-app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin'))
+
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas'))
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin'));
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastroSala/resources'));
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastroSala'));
 app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastro'))
-app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastroSala'))
-app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/TelaCadastroSala/resources'))
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaIndex'))
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaIndex/resources'))
 
 app.get('/',(req, res, next)=>{
     res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin/telaLogin.html'))
@@ -31,11 +35,16 @@ app.get('/cadastro', (req, res, next)=>{
 app.get('/cadastroSala', (req, res, next)=>{
     res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastroSala/cadastroSala.html'))
 })
+
+app.get('/telaPrincipal',(req, res, next)=>{
+    res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaIndex/Index.html'))
+})
+
 app.post('/autenticar', async (req, res, next)=>{
  
     function getProfessor(){
         return new Promise((resolve,reject) => {
-            let query = client.query("SELECT* FROM exe");
+            let query = client.query("SELECT* FROM Servidor");
             
            
             let cont = 0;
@@ -57,6 +66,8 @@ app.post('/autenticar', async (req, res, next)=>{
             client.end();
         });*/
 })
+
+
 app.listen(porta, ()=>{
     console.log('Server rodando na porta: '+porta)
 })
