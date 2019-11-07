@@ -1,0 +1,90 @@
+body
+{
+    margin: 0;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+body
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+#esquerda
+{
+    width: 50vw;
+    height: 100vh;
+    background-image: radial-gradient(ellipse at center center, #19882C 1%, #025310 100%);
+}
+#direita
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 150vh;
+}
+#telaDireita
+{
+    background-color:  rgba(209, 214, 209, 0.5);
+}
+#telaDireita
+{
+    width: 30vw;
+    margin: 10px;
+    border-radius: 20px;
+}
+#direita
+{
+    background-image: url("https://cdn.pixabay.com/photo/2017/03/28/12/07/bricks-2181920_960_720.jpg");
+}
+label
+{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+#telaDireita, input, button
+{
+   margin: auto;
+   font-size: 20px;
+   text-align: center;
+}
+input
+{
+    background-color: rgba(60, 188, 141, 0.795);
+    margin: 15px;
+    border: 0px;
+box-shadow: -3px -3px 1px rgb(140, 135, 135), 1px 3px 11px #097;
+}
+button
+{
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+#logoIfpb
+{
+    width: 25vw;
+    height: 40vw;
+    padding: 5px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+p
+{
+    text-align: center;
+    font-size: 25px;
+}
+a
+{
+    color: black;
+    text-decoration: none;
+}
+a:hover
+{
+    color: red;
+}
