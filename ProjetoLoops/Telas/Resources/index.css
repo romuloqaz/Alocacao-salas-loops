@@ -186,13 +186,13 @@ li {
 
   div.center-form > form {
     width: 50%;
-    margin: 0 auto;
-    height:85%;
+    margin: 0;
+    height:69%;
     padding: 30px;
     margin-top: 10px;
     border-radius:7px;
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
     background-color:rgb(253, 245, 245);
@@ -200,6 +200,29 @@ li {
     flex-direction: column;
     
   }
+  /*CONTEÚDO DA PÁGINA*/
+center
+{
+    display: flex;
+    flex-direction: row;
+}
+#sobre
+{
+    margin: 10px;
+    text-align: center;
+}
+p
+{
+    text-align: justify;
+    width: 180px;
+}
+#card
+{
+    width:95vw;
+    margin: 30px;
+    border: solid 1px #141313;
+    border-radius: 2px;
+}
   input[type="submit"]:hover{
     background: #1cb407;
   }
@@ -286,7 +309,7 @@ body, input, select, textarea, button {
     position:absolute;
     bottom:0;
     width:100%;
-    height:20px;   /* Mesma Altura do Rodapé */
+    height: 15vh;   /* Mesma Altura do Rodapé */
     margin-top: 40px;
  }
 
