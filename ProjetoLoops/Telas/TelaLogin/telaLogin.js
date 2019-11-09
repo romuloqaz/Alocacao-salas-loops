@@ -1,3 +1,5 @@
+
+
 let butt = document.getElementById('cadastro');
 let buttLog = document.getElementById('botao');
 
@@ -16,8 +18,11 @@ buttLog.addEventListener('click', ()=>{
   }
 
   $.post('/autenticar', obj, function(response){
-        console.log(response)
+      if(response == 'false'){
+        window.alert('DEU ERRO')
+      }
+      else{
+        console.log(typeof(response))
+      }
   })
-  
-
 })

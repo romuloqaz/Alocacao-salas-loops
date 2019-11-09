@@ -1,5 +1,5 @@
 create table servidor(
-    matricula int(20),
+    matricula int,
     nome varchar(100) not null,
     senha varchar(20) not null,
     cargo varchar(40) not null,
@@ -17,8 +17,8 @@ create table local (
 
 create table reserva(
     id serial,
-    servidor int(20),	
-	local serial,
+    servidor int,	
+	local integer,
 	dataReserva date,
     horarioInicio integer,
     horariofim integer,

@@ -40,7 +40,7 @@ app.get('/cadastroSala', (req, res, next)=>{
     if(log.log == true){
     res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/Paginas/cadastroSala.html'))
     }else{
-        res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin/telaLogin.html'))
+        res.sendFile('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin/telaLogin.html')
     }
     })
 
@@ -54,7 +54,9 @@ app.get('/telaPrincipal',(req, res, next)=>{
 app.post('/autenticar', async (req, res, next)=>{
  
     function getProfessor(){
-         return new Promise((resolve,reject)=> {      log.log = false
+         return new Promise((resolve,reject)=> {     
+             
+            log.log = true
 
             resolve(JSON.stringify(log.log));
             let query = client.query("SELECT* FROM Servidor");
