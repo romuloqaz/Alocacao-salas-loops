@@ -169,7 +169,7 @@ li {
 
   
   div.conteiner{
-    background-image: url(/ProjetoLoops/Telas/Resources/gradiente.jpg);
+    background-image: url(../Resources/gradiente.jpg);
     flex-direction: row;
     justify-content: center;
     align-items: center;

@@ -16,7 +16,7 @@ buttLog.addEventListener('click', ()=>{
   }
 
   $.post('/autenticar', obj, function(response){
-    console.log(response)
+        console.log(response)
   })
   
 

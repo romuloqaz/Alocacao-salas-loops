@@ -1,10 +1,11 @@
+
 const porta = 3003
 const express = require('express');
 const app = express();
 const path = require('path');
 const body = require('body-parser');
 const cors= require('cors');
-
+const log = require('./log')
 
 
 const pg = require('pg')
@@ -16,48 +17,57 @@ app.use(body.json())
 app.use(body.urlencoded({extended:false}))
 app.use(cors())
 
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/Paginas'))
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/Resources'))
 app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas'))
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/CadastroUsuário/img'))
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/CadastroUsuário'))
+app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/CadastroUsuário/css'))
 app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin'));
-app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastroSala/resources'));
-app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastroSala'));
 app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastro'))
-app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaIndex'))
-app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaIndex/resources'))
 
 app.get('/',(req, res, next)=>{
     res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin/telaLogin.html'))
 })
 
+
 app.get('/cadastro', (req, res, next)=>{
-    res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastro/telaCadastro.html'))
-})
+    res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/CadastroUsuário/telaCadastro.html'));
+    })
+
 
 app.get('/cadastroSala', (req, res, next)=>{
-    res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastroSala/cadastroSala.html'))
-})
+    if(log.log == true){
+    res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/Paginas/cadastroSala.html'))
+    }else{
+        res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin/telaLogin.html'))
+    }
+    })
+
+
 
 app.get('/telaPrincipal',(req, res, next)=>{
-    res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaIndex/Index.html'))
+    res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/Paginas/Index.html'))
 })
+
 
 app.post('/autenticar', async (req, res, next)=>{
  
     function getProfessor(){
-        return new Promise((resolve,reject) => {
+         return new Promise((resolve,reject)=> {      log.log = false
+
+            resolve(JSON.stringify(log.log));
             let query = client.query("SELECT* FROM Servidor");
             
-           
-            let cont = 0;
             query.on('row', function(row) {
-                if(row.id == req.body.matricula) {
-                    resolve({ status: 1 });
+                if(log.log == false) {
+              
                      }
                 });
         })
     }
 
     var waitToGetKlih = await getProfessor();
-    console.log(waitToGetKlih)
     res.send(JSON.stringify(waitToGetKlih));
         
         
