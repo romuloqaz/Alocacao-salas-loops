@@ -1,4 +1,3 @@
-
 const porta = 3003
 const express = require('express');
 const app = express();
@@ -26,6 +25,25 @@ app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/C
 app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin'));
 app.use(express.static('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaCadastro'))
 
+function isUserLogged(matricula){
+    return new Promise((resolve,rejected) => {
+        let mat = Number.parseInt(req.body.matricula);
+        let query = client.query('SELECT logado from servidor where matricula = $1', [mat])
+        query.on('row', function(row){
+            if(row.logado){
+               resolve(true);
+            }else{
+                resolve(false);
+            }
+        });
+
+        query.on('end', () => {
+            
+        })
+    })
+   
+}
+
 app.get('/',(req, res, next)=>{
     res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin/telaLogin.html'))
 })
@@ -33,17 +51,77 @@ app.get('/',(req, res, next)=>{
 
 app.get('/cadastro', (req, res, next)=>{
     res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/CadastroUsuário/telaCadastro.html'));
-    })
+})
 
 
 app.get('/cadastroSala', (req, res, next)=>{
-    if(log.log == true){
     res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/Paginas/cadastroSala.html'))
-    }else{
-        res.sendFile('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin/telaLogin.html')
-    }
     })
 
+app.post('/cadastrar',(req, res, next)=>{
+    console.log('entrei')
+    let mat = Number.parseInt(req.body.matricula)
+    client.query('insert into servidor(matricula, nome, senha, cargo, logado,email) values($1,$2,$3,$4,false,$5)',[ mat, req.body.nome, req.body.senha, req.body.cargo, req.body.email])
+    let consulta = client.query("SELECT count(*) from servidor where matricula = $1", [mat])
+
+    consulta.on('row', function(row){
+        if(row.cout == 0){
+            res.json({status: 0})
+        }else{
+            res.json({status:1})
+        }
+
+    })
+} )
+
+app.post('/verificar', (req, res, next)=>{
+        let mat = Number.parseInt(req.body.matricula)
+        let matriculas = client.query("Select matricula from servidor")
+        let numLinhas = client.query("SELECT count(*) from servidor")
+        let linhas;
+
+        function getNumLinhas(){
+            /*return new Promise((resolve,reject) => {
+               numLinhas.on('row', function (row) {
+                resolve(row.count)
+               })
+            })*/
+            let nLinha;
+            numLinhas.on('row', function(row){
+                nLinha = row.count
+        
+            })
+            numLinhas.on('end', ()=>{
+                linhas = nLinha
+                console.log(linhas)
+            })
+        }
+        
+        getNumLinhas()
+        userExists()
+        
+        function userExists() {
+            let cont = 0;
+            let exists;
+            matriculas.on('row', function(row){
+                cont++;
+                if(row.matricula == mat){
+                    exists = true
+                }
+                if(cont == linhas && !exists ){
+                    exists = false
+                }
+                
+            })
+
+            matriculas.on('end', ()=>{
+                res.json({status: exists})
+            })
+        }
+        
+        
+                
+})
 
 
 app.get('/telaPrincipal',(req, res, next)=>{
@@ -51,32 +129,20 @@ app.get('/telaPrincipal',(req, res, next)=>{
 })
 
 
-app.post('/autenticar', async (req, res, next)=>{
- 
-    function getProfessor(){
-         return new Promise((resolve,reject)=> {     
-             
-            log.log = true
+app.post('/autenticar', (req, res, next)=>{
+    
+    let mat = Number.parseInt(req.body.matricula)
+    let log = client.query("select count(*) from servidor where matricula = $1 and senha = $2", [mat, req.body.senha])
+    log.on('row', function(row){
+        if(row.count==1){
+            client.query("update servidor set logado = true where matricula = $1",[mat])
+            res.json({status: 1})
+        }else{
+            res.json({status: 0})
+        }
+    })
 
-            resolve(JSON.stringify(log.log));
-            let query = client.query("SELECT* FROM Servidor");
-            
-            query.on('row', function(row) {
-                if(log.log == false) {
-              
-                     }
-                });
-        })
-    }
-
-    var waitToGetKlih = await getProfessor();
-    res.send(JSON.stringify(waitToGetKlih));
-        
-        
-        
-      /*query.on('end', function() {
-            client.end();
-        });*/
+    
 })
 
 

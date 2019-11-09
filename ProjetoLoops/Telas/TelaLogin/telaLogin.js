@@ -18,11 +18,13 @@ buttLog.addEventListener('click', ()=>{
   }
 
   $.post('/autenticar', obj, function(response){
-      if(response == 'false'){
-        window.alert('DEU ERRO')
+      console.log(response) 
+    if(response.status == 1){
+        window.location.href = "http://localhost:3003/telaPrincipal"
       }
       else{
         console.log(typeof(response))
       }
   })
+
 })
