@@ -184,7 +184,7 @@ li {
   }
   
 
-  div.center-form > form {
+  div.center-form{
     width: 50%;
     margin: 0;
     height:60%;
@@ -228,6 +228,26 @@ p
   }
 /*estilo do botão submit */
 input[type="submit"]{
+    width: 100%;
+    cursor: pointer;  
+    background: #0a6820;
+    padding: 8px 5px;
+    color: #fff;
+    font-size: 20px;  
+    border: 1px solid #fff;   
+    margin-bottom: 10px;  
+    text-shadow: 0 1px 1px #333;
+    
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    
+    transition: all 0.2s linear;
+  }
+  button:hover{
+    background: #1cb407;
+  }
+/*estilo do botão submit */
+button{
     width: 100%;
     cursor: pointer;  
     background: #0a6820;
