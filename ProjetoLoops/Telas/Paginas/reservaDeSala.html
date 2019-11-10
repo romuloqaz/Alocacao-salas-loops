@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" type="imagem/png" href="../Resources/icon.png" />
-  <link rel="stylesheet" href="../Resources/index.css"/>
+  <link rel="icon" type="imagem/png" href="icon.png" />
+  <link rel="stylesheet" href="../Resources/index.css">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,7 +22,7 @@
   <div class="fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
       <div class="container">
-        <label href="index.html" style="color: #4AA852;"> <img src="../Resources/icon.png" width="38px"
+        <label href="index.html" style="color: #4AA852;"> <img src="/ProjetoLoops/Telas/Resources/icon.png" width="38px"
             height="50px" /> Reserva de salas IFPB-Loopis</label>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto menu clearfix">
@@ -59,9 +59,52 @@
   <div class="conteiner">
     <div class="center-form">
       <form action="#" method="post">
-        
+        <center>
           <h4 style="color: rgb(85, 83, 83);">Faça a reserva da sala</h4>
-        
+        </center>
+        <div class="campo">
+          <label for="nome">Matrícula do servidor</label>
+          <input placeholder="Digite a sua matrícula" class="dsg-input" type="text" id="nome" name="nome">
+        </div>
+        <div class="campo">
+          <label for="nome">Data da reserva</label>
+          <input placeholder="Digite a data da reserva" class="dsg-input" type="date" id="data" name="data">
+        </div>
+        <div class="campo">
+          <label for="nome">Horario início</label>
+          <select class="dsg-input" name="HorarioInicio" id="HorarioInicio">
+            <option class="dsg-input" value="">1°</option>
+            <option class="dsg-input" value="">2°</option>
+            <option class="dsg-input" value="">3°</option>
+            <option class="dsg-input" value="">4°</option>
+            <option class="dsg-input" value="">5°</option>
+            <option class="dsg-input" value="">6°</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="nome">Horario Fim</label>
+          <select class="dsg-input" name="HorarioFim" id="HorarioFim">
+            <option class="dsg-input" value="">1°</option>
+            <option class="dsg-input" value="">2°</option>
+            <option class="dsg-input" value="">3°</option>
+            <option class="dsg-input" value="">4°</option>
+            <option class="dsg-input" value="">5°</option>
+            <option class="dsg-input" value="">6°</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="nome">Turno</label>
+          <select class="dsg-input" name="Turno" id="Turno">
+            <option class="dsg-input" value="">Manhã</option>
+            <option class="dsg-input" value="">Tarde</option>
+            <option class="dsg-input" value="">Noite</option>
+          </select>
+        </div>
+        <p>
+          <input type="submit" value="Reservar sala" />
+        </p>
+
+
 
     </div>
     <!-- Rodapé-->
