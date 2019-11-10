@@ -63,28 +63,29 @@ box-shadow: -3px -3px 1px rgb(140, 135, 135), 1px 3px 11px #097;
 button
 {
     background-color: aliceblue;
-    border-radius: 5px;
+    border-radius: 7px !important;
+    margin: 10px !important;
 }
 #logoIfpb
 {
     width: 25vw;
     height: 40vw;
     padding: 5px;
-    margin-left: 50px;
+    margin-left: 100px;
     margin-top: 50px;
 }
 
 p
 {
+    margin: 10px;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
 }
-a
-{
-    color: black;
-    text-decoration: none;
+a{
+    color: black !important; 
+    text-decoration: none !important;
+    
 }
-a:hover
-{
-    color: red;
+a:hover{
+    color: red !important;
 }
