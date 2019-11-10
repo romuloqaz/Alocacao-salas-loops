@@ -5,24 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="imagem/png" href="icon.png" />
+    <link rel="icon" type="imagem/png" href="../Resources/icon.png" />
     <link rel="stylesheet" href="telaLogin.css">
     <title>IFPB-reserva</title>
 </head>
 
 <body>
     <div id="telaTitulo">
-        <img id="ifpb" src="logoifpb.png">
-        <p class="mt-5 mb-3 text-muted">&copy; ProjetoLoopis-2019</p>
+        <img id="ifpb" src="../Resources/logoifpb.png">
+        <footer id="rodape"><p id="rodape">&copy; ProjetoLoopis-2019</p></footer>
     </div>
 
     <div id="telaInfo">
-        
+    <div id="card-detalhe">
+        <h1 id=label-login><i>Login</i></h1>
+        <label id="labmat"><i>matricula</i></label><br>
         <input type="text"  maxlength="12" id="matricula" placeholder="Digite sua matrícula">
+        <label id="labelsenha"><i>Senha</i></label><br>
         <input type="password" id="senha" maxlength="20" placeholder="Digite sua senha">
         <button id="botao">Efetuar login</button>
-        <label id="lcad">Não é cadastrado? Cadastre-se</label>
-        <button id="cadastro">Cadastro</button>
+        <label id="lcad">Não é cadastrado?</label><br>
+        <button id="cadastro">Cadastre-se</button>
+    </div>
     </div>
     
 

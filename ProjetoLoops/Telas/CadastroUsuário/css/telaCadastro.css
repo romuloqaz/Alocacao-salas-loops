@@ -15,7 +15,7 @@ body
 }
 #esquerda
 {
-    width: 50vw;
+    width: 500px;
     height: 100vh;
     background-image: radial-gradient(ellipse at center center, #19882C 1%, #025310 100%);
 }
@@ -25,11 +25,11 @@ body
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    width: 150vh;
+    width: 866px;
 }
 #telaDireita
 {
-    background-color:  rgba(209, 214, 209, 0.5);
+    background-color:  #e7e7e7a8;
 }
 #telaDireita
 {
@@ -58,7 +58,7 @@ input
     background-color: rgba(60, 188, 141, 0.795);
     margin: 15px;
     border: 0px;
-box-shadow: -3px -3px 1px rgb(140, 135, 135), 1px 3px 11px #097;
+
 }
 button
 {
@@ -68,10 +68,10 @@ button
 }
 #logoIfpb
 {
-    width: 25vw;
-    height: 40vw;
+    width: 70%;
+    height: 70%;
     padding: 5px;
-    margin-left: 100px;
+    margin-left: 50px;
     margin-top: 50px;
 }
 
@@ -88,4 +88,7 @@ a{
 }
 a:hover{
     color: red !important;
+}
+#rodape{
+    margin-top: 20%;
 }
