@@ -1,3 +1,5 @@
+
+
 let buttCadSala = document.getElementById('buttCadSala')
 
 buttCadSala.addEventListener('click', ()=>{
@@ -13,9 +15,13 @@ buttCadSala.addEventListener('click', ()=>{
     }
     console.log("Fora")
     console.log(obj)
+
   $.post('/cadastrarSala', obj, function(response){
-        console.log(response)
+       if(!response.status){
+           window.alert('Sala cadastrada com sucesso!!')
+       }else{
+            window.alert('Sala já cadastrada!!!')
+       }
+
     })
-    
-    
 })

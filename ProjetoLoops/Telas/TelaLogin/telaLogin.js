@@ -23,7 +23,7 @@ buttLog.addEventListener('click', ()=>{
         window.location.href = "http://localhost:3003/telaPrincipal"
       }
       else{
-        console.log(typeof(response))
+        window.alert('Informações incorretas!!')
       }
   })
 
