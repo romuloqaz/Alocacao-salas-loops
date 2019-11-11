@@ -7,23 +7,21 @@ create table servidor(
     primary key(matricula)
 );
 
-create table local (
+create table lugar (
 	id serial,
 	nome varchar(50),
 	tipo varchar(50),
     descricao varchar(200),
-	primary key(id)
+	primary key(nome)
 	);
 
 create table reserva(
-    id serial,
     servidor int,	
-	local integer,
-	dataReserva date,
+    nome varchar(50),
+    dataReserva date,
     horarioInicio integer,
     horariofim integer,
     turno varchar(10),
-	foreign key (servidor)references servidor(matricula),
-    foreign key (local) references local(id)
+    foreign key (servidor)references servidor(matricula),
+    foreign key (nome) references lugar(nome)
 	) 
-

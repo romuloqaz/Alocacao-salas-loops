@@ -48,6 +48,9 @@ app.get('/',(req, res, next)=>{
     res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/TelaLogin/telaLogin.html'))
 })
 
+app.get('/telaPrincipal',(req, res, next)=>{
+    res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/Paginas/Index.html'))
+})
 
 app.get('/cadastro', (req, res, next)=>{
     res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/CadastroUsuário/telaCadastro.html'));
@@ -74,6 +77,21 @@ app.post('/cadastrar',(req, res, next)=>{
     })
 } )
 
+app.post('/cadastrarSala', (req, res, next)=>{
+   
+    let verifica = client.query("Select count(*) from lugar where nome = $1",[req.body.nome]);
+    verifica.on('row', function(row){
+        if(row.count == 1){
+            res.json({status: true})
+        }else{
+            client.query("insert into lugar(nome, tipo, descricao) values($1, $2, $3)",[req.body.nome, req.body.tipo, req.body.descricao])
+            res.json({status:false})
+        }
+    })
+    verifica.on('end', ()=>{
+    })
+
+})
 app.post('/verificar', (req, res, next)=>{
         let mat = Number.parseInt(req.body.matricula)
         let matriculas = client.query("Select matricula from servidor")
@@ -81,11 +99,6 @@ app.post('/verificar', (req, res, next)=>{
         let linhas;
 
         function getNumLinhas(){
-            /*return new Promise((resolve,reject) => {
-               numLinhas.on('row', function (row) {
-                resolve(row.count)
-               })
-            })*/
             let nLinha;
             numLinhas.on('row', function(row){
                 nLinha = row.count
@@ -93,7 +106,6 @@ app.post('/verificar', (req, res, next)=>{
             })
             numLinhas.on('end', ()=>{
                 linhas = nLinha
-                console.log(linhas)
             })
         }
         
@@ -122,12 +134,6 @@ app.post('/verificar', (req, res, next)=>{
         
                 
 })
-
-
-app.get('/telaPrincipal',(req, res, next)=>{
-    res.sendFile(path.join('/home/klihsman/Alocacao-salas-loops/ProjetoLoops/Telas/Paginas/Index.html'))
-})
-
 
 app.post('/autenticar', (req, res, next)=>{
     
